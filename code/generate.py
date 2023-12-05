@@ -61,10 +61,10 @@ tokenizer = AutoTokenizer.from_pretrained(f"facebook/{args.model}", use_fast=Fal
 opt_models = ['opt-125m', 'opt-350m', 'opt-1.3b', 'opt-2.7b', 'opt-6.7b', 'opt-13b', 'opt-30b']
 
 if args.dataset == 'coqa':
-    dataset = datasets.load_from_disk(f'{config.output_dir}/coqa_dataset')
+    dataset = datasets.load_dataset('coqa')
     id_to_question_mapping = dict(zip(dataset['id'], dataset['question']))
 elif args.dataset == 'trivia_qa':
-    dataset = datasets.load_from_disk(f'{config.output_dir}/trivia_qa')
+    dataset = datasets.load_dataset('trivia_qa')
 
 if args.fraction_of_data_to_use < 1.0:
     train_dataset = dataset.train_test_split(test_size=(1 - args.fraction_of_data_to_use), seed=seed_value)['train']
