@@ -57,3 +57,4 @@ device_map = {
 data_dir = ''
 hf_datasets_cache = ''
 output_dir = ''
+hf_cache_dir = ''
